@@ -27,7 +27,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.harrys.com/admin*"
+        "https://www.harrys.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -35,7 +35,7 @@
     },
     {
       "matches": [
-        "https://www.harrys.com/admin*"
+        "https://www.harrys.com/*"
       ],
       "js": [
         "src/inject/inject.js"

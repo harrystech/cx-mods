@@ -23,6 +23,7 @@ const init = () => {
   const modsHTML = mods
     .map(mod => {
       return generateModHTML(mod.name, mod.id);
+      console.log(componentHandler);
     })
     .join("");
 
