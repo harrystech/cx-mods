@@ -5,3 +5,25 @@
  .cx-mods-hidden {
   display: none !important;
  }
+
+ .cx-mods#search-by-address {
+   width: 100%;
+   display: block;
+ } 
+ .cx-mods #shipping-address-form input {
+   width: 150px;
+   display:inline-block;
+ }
+
+ .search-by-address-heading>h4{
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: #cdcdcd;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  padding: 3px 30px 0 30px;
+  font-size: 1.3em;
+  font-weight: normal;
+  line-height: 1.2;
+ }
