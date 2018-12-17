@@ -27,3 +27,21 @@
   font-weight: normal;
   line-height: 1.2;
  }
+
+ #cx-mods-locale-container {
+   float: left;
+   margin-right: 30px;
+   margin-bottom: -8px;
+ }
+
+ #cx-mods-locale-container>span {
+   margin-right: 5px;
+ }
+
+ #cx-mods-locale-container>span:last-child {
+   margin-right: 0;
+ }
+
+ #cx-mods-locale-container img {
+   width: 25px;
+ }

@@ -50,17 +50,17 @@ const injectLocalePicker = () => {
   const localeHTML = `
 		<span>
 			<a href="https://www.harrys.com/en/us?sticky=true">
-				<img border="0" id="cx-mods-us-image" src="https://lh3.googleusercontent.com/TAE6oIlZf4mO1_y0KjaEOXDxnq-aAaGDVBWpem9rXWDNDKYm-2SGxHz1IiW4aCViRf5-LyfJdxVCdA7vn8Efx5RYAd4n-r30525492Tcw8peH9u-pMjHAxOAS27JrBqWvWecfFh0M-6fvQkcb3cmYNjuhQc8FEQkzk9QQw8jVjf3u-r4VXaBLnxJ51w9iA37l1fBD191gKZuUtgm_jIbahU86q22N568AG21c4fdKBkYu9aevFROoU2ZJQwJNPxD0Oa7xLyIj8R52JmSeC6YnwPraQtxtT7aT-g0Dxcovikjjt35kB5YgMVaWd5sbmTJQfqtKLfPNYMTQ7HAvqQKOxCU2IzOFn3KiHJxgnKN3VTWEQZDnqfkW3HjR7iOlzK6OdoJl2RTepwKG__tCaG4-5ETOXv3EZlqSlj5VPn0_c1_mKAbmzoIDLAMd70A-KtFEvu5KlUwqlTTHgzbXb4Kq1R3uXObtsgL7W6iRnJ2WI42dkHzXy-6IORWDugUnXqsCefypt-kLd12bBQV3blzT8wRMU55de52Roz8qd4ALan8nIXtcocUGj0kXKVQgQI0TPeee1AS-nnBZNCBzUBBYpWLDbDLkHnj-QYQHJEqPKLtHBY_q-AS8KGfkFZtcImSXMU2t0ARMt9yYEjuQUFzXr-H=s803-no"style="float: left; margin-right: 1%; margin-bottom: 0.5em;" width="25" height="25">
+				<img border="0" id="cx-mods-us-image" src="https://lh3.googleusercontent.com/TAE6oIlZf4mO1_y0KjaEOXDxnq-aAaGDVBWpem9rXWDNDKYm-2SGxHz1IiW4aCViRf5-LyfJdxVCdA7vn8Efx5RYAd4n-r30525492Tcw8peH9u-pMjHAxOAS27JrBqWvWecfFh0M-6fvQkcb3cmYNjuhQc8FEQkzk9QQw8jVjf3u-r4VXaBLnxJ51w9iA37l1fBD191gKZuUtgm_jIbahU86q22N568AG21c4fdKBkYu9aevFROoU2ZJQwJNPxD0Oa7xLyIj8R52JmSeC6YnwPraQtxtT7aT-g0Dxcovikjjt35kB5YgMVaWd5sbmTJQfqtKLfPNYMTQ7HAvqQKOxCU2IzOFn3KiHJxgnKN3VTWEQZDnqfkW3HjR7iOlzK6OdoJl2RTepwKG__tCaG4-5ETOXv3EZlqSlj5VPn0_c1_mKAbmzoIDLAMd70A-KtFEvu5KlUwqlTTHgzbXb4Kq1R3uXObtsgL7W6iRnJ2WI42dkHzXy-6IORWDugUnXqsCefypt-kLd12bBQV3blzT8wRMU55de52Roz8qd4ALan8nIXtcocUGj0kXKVQgQI0TPeee1AS-nnBZNCBzUBBYpWLDbDLkHnj-QYQHJEqPKLtHBY_q-AS8KGfkFZtcImSXMU2t0ARMt9yYEjuQUFzXr-H=s803-no">
 			</a>
 		</span>
 		<span>
 			<a href="https://www.harrys.com/en/ca/?sticky=true">
-				<img border="0" id="cx-mods-ca-image" src="https://lh3.googleusercontent.com/E9byc5eLVPPGODyhsO-nOhFEPtjgOVEOXlVPv_glsm539roY5bB-iYdnRZ7g96bf5w2iTNLWE15hgYaQ9XOeCq3E5QN9pJu5wJhlHWCLaP7eHZXtFLhexoYiFH7Vncj8XImZUYbOu5A69liAho_xaD7rEStQhEcVYjUU4hYSeo5NTbMmZOojyv5XjR8tsJHcsxLKse7x8n5Oj-C9tSAzezeCpBkdk_gQozHzZ_fknNoiUllllGp1W971OmLHHBDA_u6CEFhOD_MSr4d4bdbKvFnuQZGNYaZk2MaCNQRMAZZpK-sKyXuSnwUV4oJiRqme5HyzKjW10l-WRtfNDSr9z9AENOtjh06w6P35SDXZiSa7pOq1HHpiakOwBGvQ3C0tqqyT-T8duvhoRtu0NybtMJsq-MCXHKI1Bmtlf75W_svRKa4KlJpmCsjQaAqO_dpIqOXVRDHyEF5obM5XSxyYslODgnKgwLl8H27Ul3Z7qYNiMw-V23qyv8tNSY1g2UIjKR2q_qKXvdYT--qBUo78Bd3ipqcBj6RrqzpToR5-q4DyW3b-RAEEDhqVi8G7Rs5J9yBwR2bWzGq3pygBUGeZR_ztA74Y4IA_MyOFC_Gt1M3bXfO0dpc-uShWUSY-O03CepbIgLEH48KcpzOJwoRdyFUW=s803-no"style="float: left; margin-right: 1%; margin-bottom: 0.5em;" width="25" height="25">
+				<img border="0" id="cx-mods-ca-image" src="https://lh3.googleusercontent.com/E9byc5eLVPPGODyhsO-nOhFEPtjgOVEOXlVPv_glsm539roY5bB-iYdnRZ7g96bf5w2iTNLWE15hgYaQ9XOeCq3E5QN9pJu5wJhlHWCLaP7eHZXtFLhexoYiFH7Vncj8XImZUYbOu5A69liAho_xaD7rEStQhEcVYjUU4hYSeo5NTbMmZOojyv5XjR8tsJHcsxLKse7x8n5Oj-C9tSAzezeCpBkdk_gQozHzZ_fknNoiUllllGp1W971OmLHHBDA_u6CEFhOD_MSr4d4bdbKvFnuQZGNYaZk2MaCNQRMAZZpK-sKyXuSnwUV4oJiRqme5HyzKjW10l-WRtfNDSr9z9AENOtjh06w6P35SDXZiSa7pOq1HHpiakOwBGvQ3C0tqqyT-T8duvhoRtu0NybtMJsq-MCXHKI1Bmtlf75W_svRKa4KlJpmCsjQaAqO_dpIqOXVRDHyEF5obM5XSxyYslODgnKgwLl8H27Ul3Z7qYNiMw-V23qyv8tNSY1g2UIjKR2q_qKXvdYT--qBUo78Bd3ipqcBj6RrqzpToR5-q4DyW3b-RAEEDhqVi8G7Rs5J9yBwR2bWzGq3pygBUGeZR_ztA74Y4IA_MyOFC_Gt1M3bXfO0dpc-uShWUSY-O03CepbIgLEH48KcpzOJwoRdyFUW=s803-no">
 			</a>
 		</span>
 		<span>
 			<a href="https://www.harrys.com/en/gb?sticky=true">
-				<img id="cx-mods-gb-image" border="0" src="https://lh3.googleusercontent.com/WuYvHZXIG3UVJlGTERSmOj9DaQ0Ku-ExpJ3hJQEs3hxAtf-rlqrC_VGNrH_zg_BCOcVU7Q2SE6LRO2WlqxhpPdMKJvqMsrOm8WOmSLJl_KCaOg2rBjhRrJLeP8OaGHI9tp1eknRC2Gr-EBOqWI_caCue2Xh5OvCJu1lJIrPc6qAd8NlyXM8yrje2UROIBVARGeWnF8l1MCjhMVw0k8G81MM_pglVRuHn8YrmaK-fWqld1p5_k6XDNI10bJVjGNIMdlPOP-gwRv0mYdb7j6jn0JLjc0flwQXH9_c_3UBKHPl42Zj-BS1BycjxLm1PLtFvRzcLfBpQPSLpL2wUVpBJsYkcDwbcNAsHzpuSRJSn_SL32PLG5JT8mN11efefpwlY4NmmsBiOONsC44FQ7-l30ElCIDwmFxNO5AH9tP5UXCAyWjttCPNreUqfw00Ic1zpl4LKePn1T-iQ3Iwg2aHEnewDK-WtQHTZNLUa7PgqlThXmMy2lDfClB1CE34Qig7BV3SkJUz1h8ApsYcFUewMAgW2VGxT4RIDwxqgmQ_Zj6YTWEg4t52lBKiU_bPcuay_ArEIZn-8I7wdzzBsIudfvzttab3OC0D4x83MRiotRVoZagm2x6u4_PvlcNIbpwvnRhW9JbCIhGpFFLD4rKKlAg45=s334-no"style="float: left; margin-right: 1%; margin-bottom: 0.5em;" width="25" height="25">
+				<img id="cx-mods-gb-image" border="0" src="https://lh3.googleusercontent.com/WuYvHZXIG3UVJlGTERSmOj9DaQ0Ku-ExpJ3hJQEs3hxAtf-rlqrC_VGNrH_zg_BCOcVU7Q2SE6LRO2WlqxhpPdMKJvqMsrOm8WOmSLJl_KCaOg2rBjhRrJLeP8OaGHI9tp1eknRC2Gr-EBOqWI_caCue2Xh5OvCJu1lJIrPc6qAd8NlyXM8yrje2UROIBVARGeWnF8l1MCjhMVw0k8G81MM_pglVRuHn8YrmaK-fWqld1p5_k6XDNI10bJVjGNIMdlPOP-gwRv0mYdb7j6jn0JLjc0flwQXH9_c_3UBKHPl42Zj-BS1BycjxLm1PLtFvRzcLfBpQPSLpL2wUVpBJsYkcDwbcNAsHzpuSRJSn_SL32PLG5JT8mN11efefpwlY4NmmsBiOONsC44FQ7-l30ElCIDwmFxNO5AH9tP5UXCAyWjttCPNreUqfw00Ic1zpl4LKePn1T-iQ3Iwg2aHEnewDK-WtQHTZNLUa7PgqlThXmMy2lDfClB1CE34Qig7BV3SkJUz1h8ApsYcFUewMAgW2VGxT4RIDwxqgmQ_Zj6YTWEg4t52lBKiU_bPcuay_ArEIZn-8I7wdzzBsIudfvzttab3OC0D4x83MRiotRVoZagm2x6u4_PvlcNIbpwvnRhW9JbCIhGpFFLD4rKKlAg45=s334-no">
 			</a>
 		</span>
 	`;
@@ -69,6 +69,7 @@ const injectLocalePicker = () => {
   localeContainer.id = "cx-mods-locale-container";
   localeContainer.innerHTML = localeHTML;
   const secondaryNav = document.querySelector(".secondary-nav");
+  // secondaryNav.insertBefore(secondaryNav.firstElementChild, localeContainer);
   secondaryNav.prepend(localeContainer);
 
   if (location.href.includes("/en/us")) {
