@@ -2,6 +2,7 @@
  * Place your custom CSS styles here.
  **/
 
-div {
-  background-image: url('https://fillmurray.com/200/200');
+
+* {
+  color: yellow !important;
 }
