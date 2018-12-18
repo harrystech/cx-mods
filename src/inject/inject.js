@@ -96,7 +96,7 @@ const injectLocalePicker = () => {
 const initialize = () => {
   if (location.href.includes("/admin")) {
     injectSearchByAddress();
-    injectSeventeenDays();
+	injectSeventeenDays();
   } else {
     injectLocalePicker();
   }
