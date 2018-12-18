@@ -107,6 +107,9 @@ chrome.extension.sendMessage({}, function(response) {
     if (document.readyState === "complete") {
       clearInterval(readyStateCheckInterval);
       initialize();
+      chrome.storage.sync.get(["a"], function(result) {
+        console.log("Value currently is " + result.a);
+      });
     }
   }, 10);
 });

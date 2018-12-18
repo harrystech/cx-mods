@@ -22,7 +22,7 @@
   "permissions": [
     "clipboardRead",
     "clipboardWrite",
-    "cookies"
+    "storage"
   ],
   "content_scripts": [
     {
