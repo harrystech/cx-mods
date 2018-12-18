@@ -103,7 +103,6 @@ const injectLocalePicker = () => {
 };
 
 const changeBackgroundColor = color => {
-  debugger;
   const wrapperEl = document.querySelector("div#wrapper");
   if (wrapperEl) {
     wrapperEl.setAttribute("style", `background-color:${color}`);
