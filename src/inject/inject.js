@@ -27,7 +27,6 @@ const injectUncheckSPCheckbox = () => {
     "input#shave_plan_send_immediately"
   );
   shavePlanCheckbox.click();
-  console.log("It worked!");
 };
 
 const injectSeventeenDays = () => {
@@ -144,13 +143,13 @@ cloneButtons = () => {
   const nextEl = pagenavButtons.querySelector('[value="Next Page"]');
   const clonePrevEl = pagenavButtonsClone.querySelector('[value="Back"]');
   const cloneNextEl = pagenavButtonsClone.querySelector('[value="Next Page');
-  if (!prevEl || !nextEl || !clonePrevEl || !cloneNextEl) return; 
-  clonePrevEl.addEventListener('click', () => {
+  if (!prevEl || !nextEl || !clonePrevEl || !cloneNextEl) return;
+  clonePrevEl.addEventListener("click", () => {
     prevEl.click();
   });
-  cloneNextEl.addEventListener('click', () => {
+  cloneNextEl.addEventListener("click", () => {
     nextEl.click();
-  })
+  });
 
   const mainContentWrapper = document.querySelector("div#main_content_wrapper");
   mainContentWrapper.prepend(pagenavButtonsClone);

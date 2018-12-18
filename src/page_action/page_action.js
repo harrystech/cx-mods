@@ -19,26 +19,37 @@ const generateModHTML = (name, id, isOn) => `
 
 const mods = [
   {
-    name: `Search by Shipping Address | Harry's Admin`,
-    id: `shipping`
-  },
-  {
-    name: "Locale | Harrys.com",
+    name: "Country Selector | Harrys.com",
     id: "locale"
   },
   {
-    name: `Auto Seventeen Day SP Helper | Harry's Admin`,
+    name: `Search by Shipping Address | Admin`,
+    id: `shipping`
+  },
+  {
+    name: `Auto Seventeen Day SP Helper | Admin`,
     id: "seventeen"
   },
   {
-    name: `Background Color | Harry's Admin`,
+    name: `Accessible Create Order Page Nav Buttons | Admin `,
+    id: "buttonsATF"
+  },
+  {
+    name: `Background Color | Admin`,
     id: "bgColor"
   }
 ];
 
 const getModSettings = callback => {
   chrome.storage.sync.get(
-    ["shipping", "locale", "seventeen", "bgColor", "bgColorValue"],
+    [
+      "shipping",
+      "locale",
+      "seventeen",
+      "buttonsATF",
+      "bgColor",
+      "bgColorValue"
+    ],
     result => {
       console.dir(result);
       if (result.shipping === "undefined") {
@@ -50,6 +61,9 @@ const getModSettings = callback => {
       if (!result.seventeen === "undefined") {
         chrome.storage.sync.set({ seventeen: true });
       }
+      if (!result.buttonsATF === "undefined") {
+        chrome.storage.sync.set({ buttonsATF: false });
+      }
       if (!result.bgColor === "undefined") {
         chrome.storage.sync.set({ bgColor: false });
       }
@@ -60,6 +74,7 @@ const getModSettings = callback => {
         shipping: result.shipping || true,
         locale: result.locale || true,
         seventeen: result.seventeen || true,
+        buttonsATF: result.buttonsATF || true,
         bgColor: result.bgColor || false,
         bgColorValue: result.bgColorValue || null
       });
@@ -79,7 +94,7 @@ const insertColorInput = () => {
     div.id = "bgColorInput";
     div.innerHTML = generateBgColorHTML(result.bgColorValue);
     bgColorMod.appendChild(div);
-    bgColorMod.querySelector("button").addEventListener("click", evt => {
+    bgColorMod.querySelector("button").addEventListener("`cl`ick", evt => {
       const newColor = document.querySelector("#bgColorInput>input").value;
       chrome.storage.sync.set({ bgColorValue: newColor }, () => {});
     });
