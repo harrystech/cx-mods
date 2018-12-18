@@ -118,13 +118,31 @@ const getModSettings = callback => {
       "bgColorValue"
     ],
     result => {
+      if (result.shipping === "undefined") {
+        result.shipping = true;
+      }
+      if (result.locale === "undefined") {
+        result.locale = true;
+      }
+      if (result.seventeen === "undefined") {
+        result.seventeen = true;
+      }
+      if (result.buttonsATF === "undefined") {
+        result.buttonsATF = false;
+      }
+      if (result.bgColor === "undefined") {
+        result.bgColor = false;
+      }
+      if (result.bgColorValue === "undefined") {
+        result.bgColorValue = null;
+      }
       callback({
-        shipping: result.shipping || true,
-        locale: result.locale || true,
-        seventeen: result.seventeen || true,
-        buttonsATF: result.buttonsATF || true,
-        bgColor: result.bgColor || false,
-        bgColorValue: result.bgColorValue || null
+        shipping: result.shipping,
+        locale: result.locale,
+        seventeen: result.seventeen,
+        buttonsATF: result.buttonsATF,
+        bgColor: result.bgColor,
+        bgColorValue: result.bgColorValue
       });
     }
   );
