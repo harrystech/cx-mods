@@ -102,10 +102,8 @@ const injectLocalePicker = () => {
   }
 };
 
-
-const wrapperEl = document.querySelector("div#wrapper")
-  wrapperEl.setAttribute('style', `background-color:${color}`);
-  
+// const wrapperEl = document.querySelector("div#wrapper")
+//   wrapperEl.setAttribute('style', `background-color:${color}`);
 
 const getModSettings = callback => {
   chrome.storage.sync.get(["shipping", "locale", "seventeen"], result => {
