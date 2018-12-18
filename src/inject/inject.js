@@ -118,6 +118,7 @@ const getModSettings = callback => {
       "bgColorValue"
     ],
     result => {
+      console.log(result);
       if (result.shipping === "undefined") {
         result.shipping = true;
       }
@@ -136,6 +137,7 @@ const getModSettings = callback => {
       if (result.bgColorValue === "undefined") {
         result.bgColorValue = null;
       }
+      console.log(result);
       callback({
         shipping: result.shipping,
         locale: result.locale,

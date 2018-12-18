@@ -99,7 +99,7 @@ const insertColorInput = () => {
     div.id = "bgColorInput";
     div.innerHTML = generateBgColorHTML(result.bgColorValue);
     bgColorMod.appendChild(div);
-    bgColorMod.querySelector("button").addEventListener("`cl`ick", evt => {
+    bgColorMod.querySelector("button").addEventListener("click", evt => {
       const newColor = document.querySelector("#bgColorInput>input").value;
       chrome.storage.sync.set({ bgColorValue: newColor }, () => {});
     });
