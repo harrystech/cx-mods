@@ -45,3 +45,8 @@
  #cx-mods-locale-container img {
    width: 25px;
  }
+
+ #page-nav-clone {
+   list-style: none;
+   display: inline
+ }

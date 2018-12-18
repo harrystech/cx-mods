@@ -103,8 +103,8 @@ const injectLocalePicker = () => {
 };
 
 
-const wrapperEl = document.querySelector("div#wrapper")
-  wrapperEl.setAttribute('style', `background-color:${color}`);
+//const wrapperEl = document.querySelector("div#wrapper")
+//  wrapperEl.setAttribute('style', `background-color:${color}`);
   
 
 const getModSettings = callback => {
@@ -122,10 +122,19 @@ const getModSettings = callback => {
     callback({
       shipping: result.shipping,
       locale: result.locale,
-      seventeen: result.seventeen
+      seventeen: result.seventeen,
+      buttonsATF: true,
     });
   });
 };
+
+cloneButtons = () => {
+  const pagenavButtons = document.querySelector("fieldset.actions>ol");
+  const pagenavButtonsClone = pagenavButtons.cloneNode(true);
+  pagenavButtonsClone.id = "page-nav-clone"
+  const mainContentWrapper = document.querySelector("div#main_content_wrapper");
+  mainContentWrapper.prepend(pagenavButtonsClone);
+}
 
 const initialize = () => {
   getModSettings(settings => {
@@ -136,6 +145,9 @@ const initialize = () => {
       }
       if (settings.shipping) {
         injectSearchByAddress();
+      }
+      if (settings.buttonsATF) {
+        cloneButtons();
       }
     } else {
       if (settings.locale) {
