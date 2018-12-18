@@ -48,5 +48,8 @@
 
  #page-nav-clone {
    list-style: none;
-   display: inline
+ }
+
+ #page-nav-clone>li {
+   display: inline-block;
  }
