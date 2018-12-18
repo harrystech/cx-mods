@@ -3,7 +3,7 @@
 
 ## To install
 1. Download this project as a zip file.
-2. extract the folder 'CX-Mods-master'.
+2. extract the folder `CX-Mods-master`.
 3. Open Chrome.
 4. type `chrome://extensions` into the address bar and click enter.
 5. Drag the `CX-Mods-master` folder into the extensions page.
