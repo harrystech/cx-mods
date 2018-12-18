@@ -38,36 +38,42 @@ const mods = [
 
 const getModSettings = callback => {
   chrome.storage.sync.get(
-    ["shipping", "locale", "seventeen", "bgColor"],
+    ["shipping", "locale", "seventeen", "bgColor", "bgColorValue"],
     result => {
       console.dir(result);
       if (result.shipping === "undefined") {
-        result.shipping = true;
         chrome.storage.sync.set({ shipping: true });
         console.log("shipping initialized");
       }
       if (!result.locale === "undefined") {
-        result.locale = true;
         chrome.storage.sync.set({ locale: true });
         console.log("locale initialized");
       }
       if (!result.seventeen === "undefined") {
-        result.seventeen = true;
         chrome.storage.sync.set({ seventeen: true });
         console.log("seventeen initialized");
       }
+      if (!result.bgColor === "undefined") {
+        chrome.storage.sync.set({ bgColor: false });
+        console.log("bgColor initialized");
+      }
+      if (!result.bgColorValue === "undefined") {
+        chrome.storage.sync.set({ bgColorValue: null });
+        console.log("bgColorValue initialized");
+      }
       callback({
-        shipping: result.shipping,
-        locale: result.locale,
-        seventeen: result.seventeen,
-        bgColor: result.bgColor
+        shipping: result.shipping || true,
+        locale: result.locale || true,
+        seventeen: result.seventeen || true,
+        bgColor: result.bgColor || false,
+        bgColorValue: result.bgColorValue || null
       });
     }
   );
 };
 
 const generateBgColorHTML = color => `
-  <input type="color" value="${color || "#770022"}">
+  <input type="color" value="${color || "#9B88BA"}">
   <button>Activate</button>
 `;
 
@@ -82,7 +88,7 @@ const insertColorInput = () => {
     bgColorMod.querySelector("button").addEventListener("click", evt => {
       const newColor = document.querySelector("#bgColorInput>input").value;
       chrome.storage.sync.set({ bgColorValue: newColor }, () => {
-        console.log(`bgColor set to ${newColor}`);
+        console.log(`bgColorValue set to ${newColor}`);
       });
     });
   });
@@ -110,14 +116,14 @@ const init = () => {
       settingCheckbox.addEventListener("click", evt => {
         chrome.storage.sync.set({ [setting]: evt.target.checked }, () => {
           console.log(`${setting} set to ${evt.target.checked}`);
-        });
-        if (setting === "bgColor") {
-          if (evt.target.checked) {
-            insertColorInput();
-          } else {
-            removeColorInput();
+          if (setting === "bgColor") {
+            if (evt.target.checked) {
+              insertColorInput();
+            } else {
+              removeColorInput();
+            }
           }
-        }
+        });
       });
     });
     if (settings.bgColor) {

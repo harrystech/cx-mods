@@ -102,37 +102,47 @@ const injectLocalePicker = () => {
   }
 };
 
-// const wrapperEl = document.querySelector("div#wrapper")
-//   wrapperEl.setAttribute('style', `background-color:${color}`);
+const changeBackgroundColor = color => {
+  debugger;
+  const wrapperEl = document.querySelector("div#wrapper");
+  if (wrapperEl) {
+    wrapperEl.setAttribute("style", `background-color:${color}`);
+  }
+};
 
 const getModSettings = callback => {
-  chrome.storage.sync.get(["shipping", "locale", "seventeen"], result => {
-    console.log("result", result);
-    if (result.shipping === "undefined") {
-      result.shipping = true;
+  chrome.storage.sync.get(
+    [
+      "shipping",
+      "locale",
+      "seventeen",
+      "buttonsATF",
+      "bgColor",
+      "bgColorValue"
+    ],
+    result => {
+      console.log("result", result);
+
+      callback({
+        shipping: result.shipping || true,
+        locale: result.locale || true,
+        seventeen: result.seventeen || true,
+        buttonsATF: result.buttonsATF || true,
+        bgColor: result.bgColor || false,
+        bgColorValue: result.bgColorValue || null
+      });
     }
-    if (result.locale === "undefined") {
-      result.locale = true;
-    }
-    if (result.seventeen === "undefined") {
-      result.seventeen = true;
-    }
-    callback({
-      shipping: result.shipping,
-      locale: result.locale,
-      seventeen: result.seventeen,
-      buttonsATF: true,
-    });
-  });
+  );
 };
 
 cloneButtons = () => {
+  if (!location.href.includes("/create_order")) return;
   const pagenavButtons = document.querySelector("fieldset.actions>ol");
   const pagenavButtonsClone = pagenavButtons.cloneNode(true);
-  pagenavButtonsClone.id = "page-nav-clone"
+  pagenavButtonsClone.id = "page-nav-clone";
   const mainContentWrapper = document.querySelector("div#main_content_wrapper");
   mainContentWrapper.prepend(pagenavButtonsClone);
-}
+};
 
 const initialize = () => {
   getModSettings(settings => {
@@ -146,6 +156,9 @@ const initialize = () => {
       }
       if (settings.buttonsATF) {
         cloneButtons();
+      }
+      if (settings.bgColor && settings.bgColorValue) {
+        changeBackgroundColor(settings.bgColorValue);
       }
     } else {
       if (settings.locale) {
