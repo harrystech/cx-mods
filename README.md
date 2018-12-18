@@ -1,7 +1,7 @@
 # CX-Mods 
-## A Chrome extension packed with useful modifications to help Harry's CX!
+### A Chrome extension packed with useful modifications to help Harry's CX!
 
-### To install
+## To install
 1. Download this project as a zip file.
 2. extract the folder 'CX-Mods-master'.
 3. Open Chrome.
