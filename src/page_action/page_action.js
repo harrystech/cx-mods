@@ -51,32 +51,37 @@ const getModSettings = callback => {
       "bgColorValue"
     ],
     result => {
-      console.dir(result);
       if (result.shipping === "undefined") {
         chrome.storage.sync.set({ shipping: true });
+        result.shipping = true;
       }
-      if (!result.locale === "undefined") {
+      if (result.locale === "undefined") {
         chrome.storage.sync.set({ locale: true });
+        result.locale = true;
       }
-      if (!result.seventeen === "undefined") {
+      if (result.seventeen === "undefined") {
         chrome.storage.sync.set({ seventeen: true });
+        result.seventeen = true;
       }
-      if (!result.buttonsATF === "undefined") {
+      if (result.buttonsATF === "undefined") {
         chrome.storage.sync.set({ buttonsATF: false });
+        result.buttonsATF = false;
       }
-      if (!result.bgColor === "undefined") {
+      if (result.bgColor === "undefined") {
         chrome.storage.sync.set({ bgColor: false });
+        result.bgColor = false;
       }
-      if (!result.bgColorValue === "undefined") {
+      if (result.bgColorValue === "undefined") {
         chrome.storage.sync.set({ bgColorValue: null });
+        result.bgColorValue = null;
       }
       callback({
-        shipping: result.shipping || true,
-        locale: result.locale || true,
-        seventeen: result.seventeen || true,
-        buttonsATF: result.buttonsATF || true,
-        bgColor: result.bgColor || false,
-        bgColorValue: result.bgColorValue || null
+        shipping: result.shipping,
+        locale: result.locale,
+        seventeen: result.seventeen,
+        buttonsATF: result.buttonsATF,
+        bgColor: result.bgColor,
+        bgColorValue: result.bgColorValue
       });
     }
   );
@@ -121,7 +126,6 @@ const init = () => {
       const settingCheckbox = document.getElementById(setting);
       settingCheckbox.addEventListener("click", evt => {
         chrome.storage.sync.set({ [setting]: evt.target.checked }, () => {
-          console.log(`${setting} set to ${evt.target.checked}`);
           if (setting === "bgColor") {
             if (evt.target.checked) {
               insertColorInput();

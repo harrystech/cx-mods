@@ -38,7 +38,6 @@ const injectSeventeenDays = () => {
   const ts = d.getTime();
   const seventeenDays = ts + 17 * 24 * 60 * 60 * 1000;
   const sev = new Date(seventeenDays);
-  console.log(sev.toString());
   const dateListItemParent = datePickerEl.parentNode;
 
   const datePickerListItem = document.createElement("li");
@@ -119,8 +118,6 @@ const getModSettings = callback => {
       "bgColorValue"
     ],
     result => {
-      console.log("result", result);
-
       callback({
         shipping: result.shipping || true,
         locale: result.locale || true,
@@ -157,7 +154,6 @@ cloneButtons = () => {
 
 const initialize = () => {
   getModSettings(settings => {
-    console.dir(settings);
     if (location.href.includes("/admin")) {
       if (settings.seventeen) {
         injectSeventeenDays();
