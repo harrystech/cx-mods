@@ -107,18 +107,12 @@ const getModSettings = callback => {
     console.log("result", result);
     if (result.shipping === "undefined") {
       result.shipping = true;
-      chrome.storage.sync.set({ shipping: true });
-      console.log("shipping initialized");
     }
     if (result.locale === "undefined") {
       result.locale = true;
-      chrome.storage.sync.set({ locale: true });
-      console.log("locale initialized");
     }
     if (result.seventeen === "undefined") {
       result.seventeen = true;
-      chrome.storage.sync.set({ seventeen: true });
-      console.log("seventeen initialized");
     }
     callback({
       shipping: result.shipping,
