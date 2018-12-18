@@ -43,23 +43,18 @@ const getModSettings = callback => {
       console.dir(result);
       if (result.shipping === "undefined") {
         chrome.storage.sync.set({ shipping: true });
-        console.log("shipping initialized");
       }
       if (!result.locale === "undefined") {
         chrome.storage.sync.set({ locale: true });
-        console.log("locale initialized");
       }
       if (!result.seventeen === "undefined") {
         chrome.storage.sync.set({ seventeen: true });
-        console.log("seventeen initialized");
       }
       if (!result.bgColor === "undefined") {
         chrome.storage.sync.set({ bgColor: false });
-        console.log("bgColor initialized");
       }
       if (!result.bgColorValue === "undefined") {
         chrome.storage.sync.set({ bgColorValue: null });
-        console.log("bgColorValue initialized");
       }
       callback({
         shipping: result.shipping || true,
@@ -78,7 +73,6 @@ const generateBgColorHTML = color => `
 `;
 
 const insertColorInput = () => {
-  console.log("insert");
   const bgColorMod = document.getElementById("mod-item-bgColor");
   chrome.storage.sync.get(["bgColorValue"], result => {
     const div = document.createElement("div");
@@ -87,15 +81,12 @@ const insertColorInput = () => {
     bgColorMod.appendChild(div);
     bgColorMod.querySelector("button").addEventListener("click", evt => {
       const newColor = document.querySelector("#bgColorInput>input").value;
-      chrome.storage.sync.set({ bgColorValue: newColor }, () => {
-        console.log(`bgColorValue set to ${newColor}`);
-      });
+      chrome.storage.sync.set({ bgColorValue: newColor }, () => {});
     });
   });
 };
 
 const removeColorInput = () => {
-  console.log("remove");
   const bgColorEl = document.getElementById("bgColorInput");
   bgColorInput.parentNode.removeChild(bgColorInput);
 };
