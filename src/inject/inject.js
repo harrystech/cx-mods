@@ -22,10 +22,17 @@ const injectSearchByAddress = () => {
   headerTabs.appendChild(searchByAddressListItem);
 };
 
+const injectUncheckSPCheckbox = () => {
+  const shavePlanCheckbox = document.querySelector("input#shave_plan_send_immediately");
+  shavePlanCheckbox.click();
+  console.log('It worked!');
+}
+
 const injectSeventeenDays = () => {
   if (!location.href.includes("/create_order")) return;
   const datePickerEl = document.querySelector("#shave_plan_first_send_date");
   if (!datePickerEl) return;
+  injectUncheckSPCheckbox();
   const d = new Date();
   const ts = d.getTime();
   const seventeenDays = ts + 17 * 24 * 60 * 60 * 1000;
@@ -96,7 +103,7 @@ const injectLocalePicker = () => {
 const initialize = () => {
   if (location.href.includes("/admin")) {
     injectSearchByAddress();
-	injectSeventeenDays();
+  injectSeventeenDays();
   } else {
     injectLocalePicker();
   }
