@@ -23,10 +23,12 @@ const injectSearchByAddress = () => {
 };
 
 const injectUncheckSPCheckbox = () => {
-  const shavePlanCheckbox = document.querySelector("input#shave_plan_send_immediately");
+  const shavePlanCheckbox = document.querySelector(
+    "input#shave_plan_send_immediately"
+  );
   shavePlanCheckbox.click();
-  console.log('It worked!');
-}
+  console.log("It worked!");
+};
 
 const injectSeventeenDays = () => {
   if (!location.href.includes("/create_order")) return;
@@ -100,13 +102,48 @@ const injectLocalePicker = () => {
   }
 };
 
+const getModSettings = callback => {
+  chrome.storage.sync.get(["shipping", "locale", "seventeen"], result => {
+    console.log("result", result);
+    if (result.shipping === "undefined") {
+      result.shipping = true;
+      chrome.storage.sync.set({ shipping: true });
+      console.log("shipping initialized");
+    }
+    if (result.locale === "undefined") {
+      result.locale = true;
+      chrome.storage.sync.set({ locale: true });
+      console.log("locale initialized");
+    }
+    if (result.seventeen === "undefined") {
+      result.seventeen = true;
+      chrome.storage.sync.set({ seventeen: true });
+      console.log("seventeen initialized");
+    }
+    callback({
+      shipping: result.shipping,
+      locale: result.locale,
+      seventeen: result.seventeen
+    });
+  });
+};
+
 const initialize = () => {
-  if (location.href.includes("/admin")) {
-    injectSearchByAddress();
-  injectSeventeenDays();
-  } else {
-    injectLocalePicker();
-  }
+  getModSettings(settings => {
+    console.dir(settings);
+    if (location.href.includes("/admin")) {
+      if (settings.seventeen) {
+        injectSeventeenDays();
+      }
+      if (settings.shipping) {
+        injectSearchByAddress();
+      }
+    } else {
+      if (settings.locale) {
+        injectLocalePicker();
+      }
+    }
+  });
 };
 
 chrome.extension.sendMessage({}, function(response) {
@@ -114,9 +151,6 @@ chrome.extension.sendMessage({}, function(response) {
     if (document.readyState === "complete") {
       clearInterval(readyStateCheckInterval);
       initialize();
-      chrome.storage.sync.get(["a"], function(result) {
-        console.log("Value currently is " + result.a);
-      });
     }
-  }, 10);
+  }, 100);
 });

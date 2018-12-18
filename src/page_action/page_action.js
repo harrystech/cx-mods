@@ -34,17 +34,18 @@ const mods = [
 
 const getModSettings = callback => {
   chrome.storage.sync.get(["shipping", "locale", "seventeen"], result => {
-    if (!result.shipping) {
+    console.dir(result);
+    if (result.shipping === "undefined") {
       result.shipping = true;
       chrome.storage.sync.set({ shipping: true });
       console.log("shipping initialized");
     }
-    if (!result.locale) {
+    if (!result.locale === "undefined") {
       result.locale = true;
       chrome.storage.sync.set({ locale: true });
       console.log("locale initialized");
     }
-    if (!result.seventeen) {
+    if (!result.seventeen === "undefined") {
       result.seventeen = true;
       chrome.storage.sync.set({ seventeen: true });
       console.log("seventeen initialized");
@@ -64,6 +65,7 @@ const init = () => {
         return generateModHTML(mod.name, mod.id, settings[mod.id]);
       })
       .join("");
+
     const modListEl = document.querySelector("#mod-list");
     modListEl.innerHTML = modsHTML;
     Object.keys(settings).forEach(setting => {
@@ -80,5 +82,3 @@ const init = () => {
 document.addEventListener("DOMContentLoaded", function(event) {
   init();
 });
-
-console.log("This code ran. Pea is the best.");
