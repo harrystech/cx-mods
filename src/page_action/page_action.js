@@ -1,6 +1,6 @@
 const generateSwitchHTML = (isOn, id) => `
   <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-    <input type="checkbox" id="${id}" class="mdl-switch__input" ${
+    <input type="checkbox" id="checkbox-${id}" class="mdl-switch__input" ${
   isOn ? "checked" : ""
 }>
     <span class="mdl-switch__label"></span>
@@ -17,128 +17,126 @@ const generateModHTML = (name, id, isOn) => `
   </li>
 `;
 
-const mods = [
+const modList = [
   {
     name: "Country Selector | Harrys.com",
-    id: "locale"
+    id: "locale",
+    type: "switch",
+    context: "harrys",
   },
   {
     name: `Search by Shipping Address | Admin`,
-    id: `shipping`
+    id: `shipping`,
+    type: "switch",
+    context: 'admin',
   },
   {
     name: `Auto Seventeen Day SP Helper | Admin`,
-    id: "seventeen"
+    id: "seventeen",
+    type: "switch",
+    context: 'admin',
   },
   {
     name: `Accessible Create Order Page Nav Buttons | Admin `,
-    id: "buttonsATF"
+    id: "buttonsATF",
+    type: "switch",
+    context: 'admin',
   },
   {
     name: `Background Color | Admin`,
-    id: "bgColor"
+    id: "bgColor",
+    type: "colorPicker",
+    defaultColor: "#9B88BA",
+    context: 'admin',
   }
 ];
 
 const getModSettings = callback => {
-  chrome.storage.sync.get(
-    [
-      "shipping",
-      "locale",
-      "seventeen",
-      "buttonsATF",
-      "bgColor",
-      "bgColorValue"
-    ],
-    result => {
-      if (result.shipping === "undefined") {
-        chrome.storage.sync.set({ shipping: true });
-        result.shipping = true;
+  modIds = modList.map(mod => mod.id);
+  chrome.storage.sync.get(modIds, result => {
+    const modSettings = modList.map(mod => {
+      switch (mod.type) {
+        case "switch": {
+          if (result[mod.id] === "undefined") {
+            chrome.storage.sync.set({ [mod.id]: true, `${mod.id}Context`: mod.context });
+            mod.isOn = true;
+          }
+          return mod;
+        }
+        case "colorPicker": {
+          if (result[mod.id] === "undefined") {
+            chrome.storage.sync.set({ [mod.id]: false, `${mod.id}Color`: mod.defaultColor });
+            mod.isOn = false;
+            mod.color = defaultColor;
+          }
+          return mod;
+        }
+        default:
+          return mod;
       }
-      if (result.locale === "undefined") {
-        chrome.storage.sync.set({ locale: true });
-        result.locale = true;
-      }
-      if (result.seventeen === "undefined") {
-        chrome.storage.sync.set({ seventeen: true });
-        result.seventeen = true;
-      }
-      if (result.buttonsATF === "undefined") {
-        chrome.storage.sync.set({ buttonsATF: false });
-        result.buttonsATF = false;
-      }
-      if (result.bgColor === "undefined") {
-        chrome.storage.sync.set({ bgColor: false });
-        result.bgColor = false;
-      }
-      if (result.bgColorValue === "undefined") {
-        chrome.storage.sync.set({ bgColorValue: null });
-        result.bgColorValue = null;
-      }
-      callback({
-        shipping: result.shipping,
-        locale: result.locale,
-        seventeen: result.seventeen,
-        buttonsATF: result.buttonsATF,
-        bgColor: result.bgColor,
-        bgColorValue: result.bgColorValue
-      });
-    }
-  );
-};
-
-const generateBgColorHTML = color => `
-  <input type="color" value="${color || "#9B88BA"}">
-  <button>Activate</button>
-`;
-
-const insertColorInput = () => {
-  const bgColorMod = document.getElementById("mod-item-bgColor");
-  chrome.storage.sync.get(["bgColorValue"], result => {
-    const div = document.createElement("div");
-    div.id = "bgColorInput";
-    div.innerHTML = generateBgColorHTML(result.bgColorValue);
-    bgColorMod.appendChild(div);
-    bgColorMod.querySelector("button").addEventListener("click", evt => {
-      const newColor = document.querySelector("#bgColorInput>input").value;
-      chrome.storage.sync.set({ bgColorValue: newColor }, () => {});
     });
+
+    callback(modSettings);
   });
 };
 
-const removeColorInput = () => {
-  const bgColorEl = document.getElementById("bgColorInput");
+const generateBgColorHTML = color => `
+  <input type="color" value="${color}">
+  <button>Activate</button>
+`;
+
+const insertColorPicker = mod => {
+  const modEl = document.getElementById(`mod-item-${mod.id}`);
+  const div = document.createElement("div");
+  const colorPickerId = `${mod.id}-input`;
+  div.id = colorPickerId;
+  div.innerHTML = generateColorPickerHTML(mod.color);
+  bgColorMod.appendChild(div);
+  bgColorMod.querySelector("button").addEventListener("click", evt => {
+    const newColor = document.querySelector(`#${colorPickerId}`).value;
+    chrome.storage.sync.set({ `${mod.id}Color`: newColor });
+  });
+};
+
+const removeColorPicker = (mod) => {
+  const bgColorEl = document.getElementById(`${mod.id}-input`);
   bgColorInput.parentNode.removeChild(bgColorInput);
 };
 
-const init = () => {
-  getModSettings(settings => {
-    const modsHTML = mods
-      .map(mod => {
-        return generateModHTML(mod.name, mod.id, settings[mod.id]);
-      })
+const renderMods = (mods) => {
+  const modsHTML = mods
+      .map(mod => generateModHTML(mod.name, mod.id, mod.isOn))
       .join("");
+  const modListEl = document.querySelector("#mod-list");
+  modListEl.innerHTML = modsHTML;
+};
 
-    const modListEl = document.querySelector("#mod-list");
-    modListEl.innerHTML = modsHTML;
-    Object.keys(settings).forEach(setting => {
-      if (setting === "bgColorValue") return;
-      const settingCheckbox = document.getElementById(setting);
-      settingCheckbox.addEventListener("click", evt => {
-        chrome.storage.sync.set({ [setting]: evt.target.checked }, () => {
-          if (setting === "bgColor") {
-            if (evt.target.checked) {
-              insertColorInput();
-            } else {
-              removeColorInput();
-            }
-          }
+const addModEventListeners = (mods) => {
+  mods
+  .forEach(mod => {
+    const modCheckbox = document.getElementById(mod.id);
+    switch(mod.type) {
+      case "switch": {
+        modCheckbox.addEventListener("click", evt => {
+          chrome.storage.sync.set({[mod.id]: evt.target.checked});
         });
-      });
-    });
-    if (settings.bgColor) {
-      insertColorInput();
+      }
+      case "colorPicker": {
+        modCheckbox.addEventListener("click", evt => {
+          chrome.storage.sync.set({[mod.id]: evt.target.checked}, () => {
+            mod.isOn = evt.target.checked;
+            evt.target.checked ? insertColorInput(mod) : removeColorInput(mod);
+          })
+        })
+      }
     }
+  });
+};
+
+const init = () => {
+  getModSettings(mods => {
+    renderMods(mods);
+    addModEventListeners(mods);
   });
 };
 

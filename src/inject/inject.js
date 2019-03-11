@@ -107,47 +107,17 @@ const changeBackgroundColor = color => {
   }
 };
 
+const modHandlerMap = {
+  locale: injectLocalePicker,
+  seventeen: injectSeventeenDays,
+  shipping: injectSearchByAddress,
+  buttonsATF: cloneButtons,
+  bgColor: changeBackgroundColor,
+};
 const getModSettings = callback => {
-  chrome.storage.sync.get(
-    [
-      "shipping",
-      "locale",
-      "seventeen",
-      "buttonsATF",
-      "bgColor",
-      "bgColorValue"
-    ],
-    result => {
-      console.log(result);
-      if (result.shipping === "undefined") {
-        result.shipping = true;
-      }
-      if (result.locale === "undefined") {
-        result.locale = true;
-      }
-      if (result.seventeen === "undefined") {
-        result.seventeen = true;
-      }
-      if (result.buttonsATF === "undefined") {
-        result.buttonsATF = false;
-      }
-      if (result.bgColor === "undefined") {
-        result.bgColor = false;
-      }
-      if (result.bgColorValue === "undefined") {
-        result.bgColorValue = null;
-      }
-      console.log(result);
-      callback({
-        shipping: result.shipping,
-        locale: result.locale,
-        seventeen: result.seventeen,
-        buttonsATF: result.buttonsATF,
-        bgColor: result.bgColor,
-        bgColorValue: result.bgColorValue
-      });
-    }
-  );
+  chrome.storage.sync.get(null, result => {
+    callback(result);
+  });
 };
 
 cloneButtons = () => {
@@ -173,7 +143,15 @@ cloneButtons = () => {
 };
 
 const initialize = () => {
+  if (!location.href.includes("harrys.com")) return;
   getModSettings(settings => {
+    const mods =  Object.keys(settings).filter(setting => modHandlerMap[setting]);
+    mods.forEach(mod => {
+      const mod
+    })
+    settings.forEach(setting => {
+      if (modHandlerMap[[setting]])
+    })
     if (location.href.includes("/admin")) {
       if (settings.seventeen) {
         injectSeventeenDays();
@@ -187,8 +165,7 @@ const initialize = () => {
       if (settings.bgColor && settings.bgColorValue) {
         changeBackgroundColor(settings.bgColorValue);
       }
-    } else {
-      if (settings.locale) {
+    } else if (location.href.includes("/")      if (settings.locale) {
         injectLocalePicker();
       }
     }
