@@ -30,7 +30,7 @@
         "https://www.harrys.com/*"
       ],
       "css": [
-        "src/inject/inject.css"
+        "src/inject/content.css"
       ]
     },
     {
@@ -38,8 +38,13 @@
         "https://www.harrys.com/*"
       ],
       "js": [
-        "src/inject/inject.js"
+        "src/inject/content.js"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    "src/inject/*.js",
+    "src/inject/**/*",
+    "src/shared/*"
   ]
 }
