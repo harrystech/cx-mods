@@ -1,21 +1,3 @@
-const generateSwitchHTML = (isOn, id) => `
-  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-    <input type="checkbox" id="checkbox-${id}" class="mdl-switch__input" ${
-  isOn ? "checked" : ""
-}>
-    <span class="mdl-switch__label"></span>
-  </label>
-`;
-
-const generateModHTML = (name, id, isOn) => `
-  <li class="mod" id="mod-item-${id}">
-    <span class="name">${name}</span>
-    <span class="switch"  id="switch-${id}">${generateSwitchHTML(
-  isOn,
-  id
-)}</span>
-  </li>
-`;
 
 const modList = [
   {
@@ -51,6 +33,26 @@ const modList = [
   }
 ];
 
+const generateSwitchHTML = (isOn, id) => `
+  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+    <input type="checkbox" id="checkbox-${id}" class="mdl-switch__input" ${
+  isOn ? "checked" : ""
+}>
+    <span class="mdl-switch__label"></span>
+  </label>
+`;
+
+const generateModHTML = (name, id, isOn) => `
+  <li class="mod" id="mod-item-${id}">
+    <span class="name">${name}</span>
+    <span class="switch"  id="switch-${id}">${generateSwitchHTML(
+  isOn,
+  id
+)}</span>
+  </li>
+`;
+
+
 const getModSettings = callback => {
   modIds = modList.map(mod => mod.id);
   chrome.storage.sync.get(modIds, result => {
@@ -67,7 +69,7 @@ const getModSettings = callback => {
           if (result[mod.id] === "undefined") {
             chrome.storage.sync.set({ [mod.id]: false, `${mod.id}Color`: mod.defaultColor });
             mod.isOn = false;
-            mod.color = defaultColor;
+            mod.color = mod.defaultColor;
           }
           return mod;
         }

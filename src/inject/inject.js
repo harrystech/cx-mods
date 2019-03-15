@@ -130,7 +130,7 @@ cloneButtons = () => {
   const nextEl = pagenavButtons.querySelector('[value="Next Page"]');
   const clonePrevEl = pagenavButtonsClone.querySelector('[value="Back"]');
   const cloneNextEl = pagenavButtonsClone.querySelector('[value="Next Page');
-  if (!prevEl || !nextEl || !clonePrevEl || !cloneNextEl) return;
+  if (!prevEl || !nextEl || !clonePrevEl || !cloneNextEl)  ßreturn;
   clonePrevEl.addEventListener("click", () => {
     prevEl.click();
   });
