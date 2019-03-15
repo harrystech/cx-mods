@@ -3,22 +3,22 @@ import generateModHTML from "./generateModHTML.js";
 
 const getModSettings = callback => {
   const modIds = modList.map(mod => mod.id);
-  chrome.storage.sync.get(modIds, result => {
-    console.log(result);
+  chrome.storage.sync.get(null, result => {
     const modSettings = modList.map(mod => {
       switch (mod.type) {
         case "switch": {
-          if (result[mod.id] === "undefined") {
+          if (result[mod.id] === undefined) {
             chrome.storage.sync.set({
-              [mod.id]: mod.defaultOn,
-              [`${mod.id}Context`]: mod.context
+              [mod.id]: mod.defaultOn
             });
-            mod.isOn = true;
+            mod.isOn = mod.defaultOn;
+          } else {
+            mod.isOn = result[mod.id];
           }
           return mod;
         }
         case "colorPicker": {
-          if (result[mod.id] === "undefined") {
+          if (result[mod.id] === undefined) {
             chrome.storage.sync.set({
               [mod.id]: mod.defaultOn,
               [`${mod.id}Color`]: mod.defaultColor
@@ -26,7 +26,9 @@ const getModSettings = callback => {
 
             mod.isOn = mod.defaultOn;
             mod.color = mod.defaultColor;
-            console.log("defaultcolor", mod.defaultColor, mod.color);
+          } else {
+            mod.isOn = result[mod.id];
+            mod.color = result[`${mod.id}Color`];
           }
           return mod;
         }
@@ -49,18 +51,17 @@ const insertColorPicker = mod => {
   const div = document.createElement("div");
   const colorPickerId = `${mod.id}-input`;
   div.id = colorPickerId;
-  console.log(mod);
   div.innerHTML = generateColorPickerHTML(mod.color);
   modEl.appendChild(div);
   modEl.querySelector("button").addEventListener("click", evt => {
-    const newColor = document.querySelector(`#${colorPickerId}`).value;
+    const newColor = document.querySelector(`#${colorPickerId} input`).value;
     chrome.storage.sync.set({ [`${mod.id}Color`]: newColor });
   });
 };
 
 const removeColorPicker = mod => {
   const bgColorEl = document.getElementById(`${mod.id}-input`);
-  bgColorInput.parentNode.removeChild(bgColorInput);
+  bgColorEl.parentNode.removeChild(bgColorEl);
 };
 
 const renderMods = mods => {
@@ -79,8 +80,12 @@ const addModEventListeners = mods => {
         modCheckbox.addEventListener("click", evt => {
           chrome.storage.sync.set({ [mod.id]: evt.target.checked });
         });
+        break;
       }
       case "colorPicker": {
+        if (mod.isOn) {
+          insertColorPicker(mod);
+        }
         modCheckbox.addEventListener("click", evt => {
           chrome.storage.sync.set({ [mod.id]: evt.target.checked }, () => {
             mod.isOn = evt.target.checked;
@@ -89,6 +94,7 @@ const addModEventListeners = mods => {
               : removeColorPicker(mod);
           });
         });
+        break;
       }
     }
   });

@@ -1,5 +1,5 @@
 const shipping = () => {
-  headerTabs = document.querySelector("#tabs");
+  const headerTabs = document.querySelector("#tabs");
   if (!headerTabs) {
     return;
   }
