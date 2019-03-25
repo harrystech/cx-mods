@@ -1,7 +1,7 @@
 {
   "name": "CX Mods",
   "version": "1.0.1",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "description": "Mods for CX",
   "homepage_url": "https://github.com/babbins/cx-mods",
   "icons": {
