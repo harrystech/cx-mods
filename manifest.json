@@ -1,9 +1,9 @@
 {
   "name": "CX Mods",
-  "version": "0.0.1",
-  "manifest_version": 2,
+  "version": "1.0.1",
+  "manifest_version": 3,
   "description": "Mods for CX",
-  "homepage_url": "http://extensionizr.com",
+  "homepage_url": "https://github.com/babbins/cx-mods",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
