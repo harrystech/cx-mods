@@ -4,28 +4,28 @@ const modList = [
     id: "locale",
     type: "switch",
     context: "www",
-    defaultOn: false
+    defaultOn: true,
   },
   {
     name: `Search by Shipping Address | Admin`,
     id: `shipping`,
     type: "switch",
     context: "admin",
-    defaultOn: false
+    defaultOn: true,
   },
   {
     name: `Auto Seventeen Day SP Helper | Admin`,
     id: "seventeen",
     type: "switch",
     context: "admin",
-    defaultOn: false
+    defaultOn: true,
   },
   {
     name: `Accessible Create Order Page Nav Buttons | Admin `,
     id: "buttonsATF",
     type: "switch",
     context: "admin",
-    defaultOn: false
+    defaultOn: true,
   },
   {
     name: `Background Color | Admin`,
@@ -33,7 +33,7 @@ const modList = [
     type: "colorPicker",
     defaultColor: "#9B88BA",
     context: "admin",
-    defaultOn: true
+    defaultOn: false,
   }
 ];
 
