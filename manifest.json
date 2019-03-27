@@ -20,8 +20,6 @@
     "default_popup": "src/popup/popup.html"
   },
   "permissions": [
-    "clipboardRead",
-    "clipboardWrite",
     "storage"
   ],
   "content_scripts": [
