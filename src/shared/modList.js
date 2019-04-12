@@ -28,13 +28,20 @@ const modList = [
     defaultOn: true,
   },
   {
+    name: `Hide Excess Discount Links | Admin`,
+    id: "hideDiscounts",
+    type: "switch",
+    context: "admin",
+    defaultOn: false,
+  },  
+  {
     name: `Background Color | Admin`,
     id: "bgColor",
     type: "colorPicker",
     defaultColor: "#9B88BA",
     context: "admin",
     defaultOn: false,
-  }
+  },
 ];
 
 export default modList;
