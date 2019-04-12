@@ -41,8 +41,6 @@
     }
   ],
   "web_accessible_resources": [
-    "src/inject/*.js",
-    "src/inject/**/*",
-    "src/shared/*"
+    "src/**/*"
   ]
 }
