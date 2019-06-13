@@ -4,6 +4,8 @@ import bgColor from "./bgColor.js";
 import buttonsATF from "./buttonsATF.js";
 import shipping from "./shipping.js";
 import hideDiscounts from "./hideDiscounts.js";
+import nextSPSend from "./nextSPSend.js";
+
 const modHandlers = {
   seventeen,
   locale,
@@ -11,6 +13,7 @@ const modHandlers = {
   buttonsATF,
   shipping,
   hideDiscounts,
+  nextSPSend
 };
 
 export default modHandlers;
