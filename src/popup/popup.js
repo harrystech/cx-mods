@@ -100,11 +100,16 @@ const addModEventListeners = mods => {
   });
 };
 
+function reloadMainTab() {
+  chrome.tabs.reload();
+}
+
 const init = () => {
   getModSettings(mods => {
     renderMods(mods);
     addModEventListeners(mods);
   });
+  document.getElementById('applyButton').addEventListener('click', reloadMainTab);
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
