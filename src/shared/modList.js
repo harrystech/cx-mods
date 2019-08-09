@@ -42,6 +42,13 @@ const modList = [
     defaultOn: true
   },
   {
+    name: `Tracking Window Preview | Admin`,
+    id: "embedTracking",
+    type: "switch",
+    context: "admin",
+    defaultOn: true
+  },
+  {
     name: `Background Color | Admin`,
     id: "bgColor",
     type: "colorPicker",
