@@ -5,6 +5,7 @@ import buttonsATF from "./buttonsATF.js";
 import shipping from "./shipping.js";
 import hideDiscounts from "./hideDiscounts.js";
 import nextSPSend from "./nextSPSend.js";
+import embedTracking from "./embedTracking.js";
 
 const modHandlers = {
   seventeen,
@@ -13,7 +14,8 @@ const modHandlers = {
   buttonsATF,
   shipping,
   hideDiscounts,
-  nextSPSend
+  nextSPSend,
+  embedTracking,
 };
 
 export default modHandlers;
