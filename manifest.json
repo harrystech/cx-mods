@@ -1,6 +1,6 @@
 {
   "name": "CX Mods",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "manifest_version": 2,
   "description": "Mods for CX",
   "homepage_url": "https://github.com/babbins/cx-mods",
@@ -19,28 +19,16 @@
     "default_title": "Popup",
     "default_popup": "src/popup/popup.html"
   },
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["storage"],
   "content_scripts": [
     {
-      "matches": [
-        "https://www.harrys.com/*"
-      ],
-      "css": [
-        "src/inject/content.css"
-      ]
+      "matches": ["https://www.harrys.com/*"],
+      "css": ["src/inject/content.css"]
     },
     {
-      "matches": [
-        "https://www.harrys.com/*"
-      ],
-      "js": [
-        "src/inject/content.js"
-      ]
+      "matches": ["https://www.harrys.com/*"],
+      "js": ["src/inject/content.js"]
     }
   ],
-  "web_accessible_resources": [
-    "src/**/*"
-  ]
+  "web_accessible_resources": ["src/**/*"]
 }
