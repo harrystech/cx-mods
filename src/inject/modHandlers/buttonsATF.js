@@ -12,20 +12,16 @@ const buttonsATF = () => {
   const nextEl = pagenavButtons.querySelector('[value="Next Page"]');
   const clonePrevEl = pagenavButtonsClone.querySelector('[value="Back"]');
   const cloneNextEl = pagenavButtonsClone.querySelector('[value="Next Page');
-  const connectPrevEls = () => {
-    if (!prevEl || !clonePrevEl) return;
+  if (prevEl && clonePrevEl) {
     clonePrevEl.addEventListener("click", () => {
       prevEl.click();
     });
-  };
-  const connectNextEls = () => {
-    if (!nextEl || !cloneNextEl) return;
+  }
+  if (nextEl && cloneNextEl) {
     cloneNextEl.addEventListener("click", () => {
       nextEl.click();
     });
-  };
-  connectPrevEls();
-  connectNextEls();
+  }
   const mainContentWrapper = document.querySelector("div#main_content_wrapper");
   mainContentWrapper.prepend(pagenavButtonsClone);
 };
