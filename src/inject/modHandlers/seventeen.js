@@ -8,7 +8,8 @@ const uncheckSPCheckbox = () => {
 const seventeen = () => {
   if (
     !location.href.includes("/show_create_order") &&
-    !location.href.includes("/create_order")
+    !location.href.includes("/create_order") &&
+    !location.href.includes("/create_replacement")
   )
     return;
   const datePickerEl = document.querySelector("#shave_plan_first_send_date");
