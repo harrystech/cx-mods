@@ -3,49 +3,49 @@ const modList = [
     name: `Country Selector | Harrys.com`,
     id: "locale",
     type: "switch",
-    context: "www",
+    contexts: ["www"],
     defaultOn: true
   },
   {
     name: `Search by Shipping Address | Admin`,
     id: `shipping`,
     type: "switch",
-    context: "admin",
+    contexts: ["admin"],
     defaultOn: true
   },
   {
     name: `Auto Seventeen Day SP Helper | Admin`,
     id: "seventeen",
     type: "switch",
-    context: "admin",
+    contexts: ["admin"],
     defaultOn: true
   },
   {
     name: `Accessible Create Order Page Nav Buttons | Admin`,
     id: "buttonsATF",
     type: "switch",
-    context: "admin",
+    contexts: ["admin"],
     defaultOn: true
   },
   {
     name: `Hide Excess Discount Links | Admin`,
     id: "hideDiscounts",
     type: "switch",
-    context: "admin",
+    contexts: ["admin"],
     defaultOn: false
   },
   {
     name: `Next Send Date SP Helper | Admin`,
     id: "nextSPSend",
     type: "switch",
-    context: "admin",
+    contexts: ["admin"],
     defaultOn: true
   },
   {
     name: `Tracking Window Preview | Admin`,
     id: "embedTracking",
     type: "switch",
-    context: "admin",
+    contexts: ["admin"],
     defaultOn: true
   },
   {
@@ -53,7 +53,7 @@ const modList = [
     id: "bgColor",
     type: "colorPicker",
     defaultColor: "#9B88BA",
-    context: "admin",
+    contexts: ["admin"],
     defaultOn: false
   }
 ];
