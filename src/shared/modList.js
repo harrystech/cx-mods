@@ -17,14 +17,14 @@ const modList = [
     name: `Auto Seventeen Day SP Helper | Admin`,
     id: "seventeen",
     type: "switch",
-    contexts: ["admin"],
+    contexts: ["admin", "order"],
     defaultOn: true
   },
   {
     name: `Accessible Create Order Page Nav Buttons | Admin`,
     id: "buttonsATF",
     type: "switch",
-    contexts: ["admin"],
+    contexts: ["admin", "order"],
     defaultOn: true
   },
   {
