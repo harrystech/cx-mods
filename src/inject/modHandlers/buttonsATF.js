@@ -1,10 +1,4 @@
 const buttonsATF = () => {
-  if (
-    !location.href.includes("/show_create_order") &&
-    !location.href.includes("/create_order") &&
-    !location.href.includes("/create_replacement")
-  )
-    return;
   const pagenavButtons = document.querySelector("fieldset.actions>ol");
   const pagenavButtonsClone = pagenavButtons.cloneNode(true);
   pagenavButtonsClone.id = "page-nav-clone";
