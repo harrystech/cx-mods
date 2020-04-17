@@ -2,7 +2,7 @@
 #### A Chrome extension packed with useful modifications to help Harry's CX!
 
 ## To Use
-[Download CX Mods on the Chrome Webstore](https://chrome.google.com/webstore/detail/cx-mods/hikkjiddbojjmjabfedabamebmflenkb?hl=en-US&gl=US)
+[Download CX Mods on the Chrome Webstore](https://chrome.google.com/webstore/detail/oggejapagdfnchdcmhngpkdopcjikipo/publish-accepted?authuser=0&hl=en)
 
 ## Development Setup
 
