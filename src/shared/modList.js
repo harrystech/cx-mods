@@ -42,6 +42,13 @@ const modList = [
     defaultOn: true
   },
   {
+    name: `Ship to Country Label`,
+    id: "shipToCountryforCard",
+    type: "switch",
+    contexts: ["admin"],
+    defaultOn: false
+  },
+  {
     name: `Tracking Window Preview | Admin`,
     id: "embedTracking",
     type: "switch",

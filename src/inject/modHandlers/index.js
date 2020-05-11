@@ -6,6 +6,7 @@ import shipping from "./shipping.js";
 import hideDiscounts from "./hideDiscounts.js";
 import nextSPSend from "./nextSPSend.js";
 import embedTracking from "./embedTracking.js";
+import shipToCountryforCard from "./shipToCountryforCard.js";
 
 const modHandlers = {
   seventeen,
@@ -15,7 +16,8 @@ const modHandlers = {
   shipping,
   hideDiscounts,
   nextSPSend,
-  embedTracking,
+  shipToCountryforCard,
+  embedTracking
 };
 
 export default modHandlers;
