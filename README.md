@@ -8,7 +8,7 @@
 
 1. Clone this repository
 ```
-git clone git@github.com:babbins/CX-Mods.git
+git clone git@github.com:harrystech/cx-mods.git
 ```
 2. Open the Chrome Settings
 3. Click "extensions" at the bottom left of the settings menu.
