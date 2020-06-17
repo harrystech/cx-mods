@@ -4,11 +4,13 @@ const order = () =>
   location.href.includes("/show_create_order") ||
   location.href.includes("/create_order") ||
   location.href.includes("/create_replacement");
+const orderStepOne = () => !!document.querySelector("#product-filter-list");
 
 const contextTests = {
   admin,
   www,
-  order
+  order,
+  orderStepOne
 };
 
 export default contextTests;

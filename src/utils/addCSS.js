@@ -1,16 +1,9 @@
 function addCSS(code) {
-    const style = document.createElement('style');
-    style.type = 'text/css';
+  const style = document.createElement("style");
+  style.type = "text/css";
+  style.innerHTML = code;
 
-    if (style.styleSheet) {
-        // IE
-        style.styleSheet.cssText = code;
-    } else {
-        // Other browsers
-        style.innerHTML = code;
-    }
-
-    document.getElementsByTagName("head")[0].appendChild( style );
+  document.getElementsByTagName("head")[0].appendChild(style);
 }
 
 export default addCSS;
