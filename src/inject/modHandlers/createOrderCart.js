@@ -44,12 +44,12 @@ const getCart = () => {
     }
   }
   cart.subtotal = getCartSubtotal(cart);
-  console.log(cart);
   return cart;
 };
 
 const countrySelector = document.querySelector("select#country");
 const selectedCountry =
+  countrySelector &&
   countrySelector.options[countrySelector.selectedIndex].value;
 
 const createCartItem = (product) => `
