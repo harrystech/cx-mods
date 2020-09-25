@@ -13,7 +13,7 @@ const shipping = () => {
     <form action="/admin/shipping_addresses" id="shipping-address-form">
 			<input name="q[name_cont]" type="text" placeholder="Name (contains)">
 			<input name="q[address_line_1_cont]" type="text" placeholder="Address (contains)">
-			<input name="q[zip_eq]" type="text" placeholder="Zip (exact)">
+			<input name="q[zip_cont]" type="text" placeholder="Zip (contains)">
 			<input type="submit" class="cx-mods-hidden">
     </form>
   `;
