@@ -1,7 +1,7 @@
 {
   "name": "CX Mods",
-  "version": "2.1.0",
-  "manifest_version": 2,
+  "version": "3.0.0",
+  "manifest_version": 3,
   "description": "Mods for CX",
   "homepage_url": "https://github.com/babbins/cx-mods",
   "icons": {
@@ -11,8 +11,7 @@
   },
   "default_locale": "en",
   "background": {
-    "page": "src/bg/background.html",
-    "persistent": true
+    "service_worker": "src/bg/background.html"
   },
   "page_action": {
     "default_icon": "icons/icon19.png",
@@ -30,5 +29,8 @@
       "js": ["src/inject/content.js"]
     }
   ],
-  "web_accessible_resources": ["src/**/*"]
+  "web_accessible_resources": [{
+    "resources": ["src/**/*"],
+    "matches": ["https://www.harrys.com/*", "http://localhost/*"]
+  }]
 }
